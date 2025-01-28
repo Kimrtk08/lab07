@@ -8,6 +8,7 @@
 <body>
     <h3>รายการสินค้า</h3>
     <button onclick="showProducts()">แสดงรายการสินค้า</button>
+    <button onclick="clearProducts()">ปิดรายการทั้งหมด</button>
     <ul id="productList"></ul>
 
     <script>
@@ -21,6 +22,9 @@
                 li.textContent = products[i];
                 productList.appendChild(li);
             }
+        }
+        function clearProducts(){
+            productList.innerHTML = ""; // ล้างรายการเดิม 
         }
     </script>
 </body>
