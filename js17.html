@@ -30,31 +30,35 @@
           <label for="confirmPassword">ยืนยันรหัสผ่าน:</label>
           <input type="password" id="confirmPassword" required />
         </div>
-        <button type="submit">ส่งข้อมูล ่</button>
+        <button type="submit">ส่งข้อมูล</button>
         <p id="formError" style="color: red"></p>
       </form>
       <script>
-        // ฟังก์ชนตรวจสอบความถูกต ้องของฟอร์ม ั 
-        function validateForm(event) { 
-            event.preventDefault(); 
-            // รับค่าจากฟอร์ม 
-            const email = document.getElementById("email").value; 
-            const password = document.getElementById("password").value; 
-            const confirmPassword = document.getElementById("confirmPassword").value; 
-            const errorElement = document.getElementById("formError"); 
-            // ตรวจสอบรหัสผ่านตรงกัน 
-            if (password !== confirmPassword) { 
-                errorElement.textContent = "รหัสผ่านไม่ตรงกัน"; 
-                return; 
-            } 
-                // ตรวจสอบความยาวรหัสผ่าน 
-                if (password.length < 6) { 
-                    errorElement.textContent = 
-                    // ถ ้าผ่านการตรวจสอบ 
-                    errorElement.textContent = "ส่งข้อมูลสำเร็จ!"; 
-                    errorElement.style.color = "green"; 
-                }
-            }
+        // ฟังก์ชนตรวจสอบความถูกต้องของฟอร์ม
+        function validateForm(event) {
+          event.preventDefault();
+          // รับค่าจากฟอร์ม
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const confirmPassword = document.getElementById("confirmPassword").value;
+          const errorElement = document.getElementById("formError");
+          
+          // ตรวจสอบรหัสผ่านตรงกัน
+          if (password !== confirmPassword) {
+            errorElement.textContent = "รหัสผ่านไม่ตรงกัน";
+            return;
+          }
+
+          // ตรวจสอบความยาวรหัสผ่าน
+          if (password.length < 6) {
+            errorElement.textContent = "รหัสผ่านต้องมีความยาวอย่างน้อย 6 ตัว";
+            return;
+          }
+
+          // ถ้าผ่านการตรวจสอบทั้งหมด
+          errorElement.textContent = "ส่งข้อมูลสำเร็จ!";
+          errorElement.style.color = "green";
+        }
       </script>
     </div>
   </body>
